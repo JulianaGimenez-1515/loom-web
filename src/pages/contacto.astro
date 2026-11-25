@@ -1,0 +1,241 @@
+---
+import Base from '../layouts/Base.astro';
+import Trama from '../components/Trama.astro';
+import Hilvan from '../components/Hilvan.astro';
+import Faq from '../components/Faq.astro';
+
+import site from '../data/site.json';
+import data from '../data/contacto.json';
+import faq from '../data/faq.json';
+
+const f = data.formulario;
+---
+<Base titulo={data.seo.titulo} descripcion={data.seo.descripcion}>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="eyebrow eyebrow-sm">{data.intro.eyebrow}</div>
+    <h1 class="h1" style="max-width:20ch">{data.intro.titulo}</h1>
+    <p class="intro-p">{data.intro.texto}</p>
+  </section>
+
+  <Hilvan />
+
+  <!-- FORMULARIO + WHATSAPP -->
+  <section id="agenda" class="agenda grid-auto">
+    <!--
+      Formulario de Netlify Forms:
+      - data-netlify="true" hace que Netlify lo detecte al publicar.
+      - "bot-field" es una trampa para robots de spam (las personas no la ven).
+      - Las consultas llegan al panel de Netlify (Forms) y por mail si lo activás ahí.
+    -->
+    <form
+      name="contacto"
+      method="POST"
+      action="/gracias"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      class="form"
+      novalidate
+      data-reveal="up"
+    >
+      <input type="hidden" name="form-name" value="contacto" />
+      <p class="oculto"><label>No completes este campo: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+
+      <h2 class="form-titulo">{f.titulo}</h2>
+
+      <div class="fila grid-auto">
+        <label>Nombre
+          <input type="text" name="nombre" autocomplete="name" required data-error="Contanos tu nombre." />
+          <span class="campo-error" aria-live="polite"></span>
+        </label>
+        <label>Mail
+          <input type="email" name="mail" autocomplete="email" required data-error="Escribí un mail válido, por ejemplo nombre@marca.com." />
+          <span class="campo-error" aria-live="polite"></span>
+        </label>
+      </div>
+      <div class="fila grid-auto">
+        <label>Marca o empresa
+          <input type="text" name="marca" autocomplete="organization" />
+        </label>
+        <label><span>País <span class="opcional">(opcional)</span></span>
+          <input type="text" name="pais" autocomplete="country-name" />
+        </label>
+      </div>
+      <label>Punto de partida
+        <select name="punto-de-partida">
+          {f.puntosDePartida.map((op) => <option>{op}</option>)}
+        </select>
+      </label>
+      <label>Mensaje
+        <textarea name="mensaje" rows="5" required data-error="Contanos un poco sobre tu proyecto."></textarea>
+        <span class="campo-error" aria-live="polite"></span>
+      </label>
+
+      <button type="submit" class="btn btn-primary btn-sm enviar">{f.boton}</button>
+      <p class="plazo">{f.plazo}</p>
+      <p class="privacidad">{f.privacidad}</p>
+
+      <div class="estado estado-error" role="alert" hidden>{f.error}</div>
+    </form>
+
+    <!-- Mensaje que reemplaza al formulario cuando se envía bien -->
+    <div class="exito" role="status" hidden>
+      <h2 class="form-titulo">{f.exitoTitulo}</h2>
+      <p>{f.exitoTexto}</p>
+    </div>
+
+    <div class="lateral">
+      <div class="wa" data-reveal="up" data-delay="200">
+        <h3 class="h3" style="font-size:15px;letter-spacing:.16em">{data.whatsappTitulo}</h3>
+        <div class="wa-botones">
+          {site.sedes.map((s) => (
+            <a href={`https://wa.me/${s.whatsapp}`} class="btn btn-outline btn-sm" target="_blank" rel="noopener">WhatsApp {s.ciudad}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEDES -->
+  <section class="bg-banda">
+    <Trama />
+    <div class="sedes grid-auto">
+      {site.sedes.map((s, i) => (
+        <div class="sede" data-reveal="up" data-delay={i * 120 || undefined}>
+          <div class="eyebrow eyebrow-sm">Sede</div>
+          <h2 class="sede-ciudad">{s.ciudad}</h2>
+          <a href={`mailto:${s.email}`}>{s.email}</a>
+          <span>{s.telefono}</span>
+        </div>
+      ))}
+      <div class="sede" data-reveal="up" data-delay="200">
+        <div class="eyebrow eyebrow-sm">{data.modalidad.titulo}</div>
+        <p>{data.modalidad.texto}</p>
+      </div>
+    </div>
+    <Trama />
+  </section>
+
+  <!-- FAQ (todas las preguntas) -->
+  <section class="faq-sec">
+    <h2 class="h2" style="font-size:clamp(30px,3.2vw,40px);line-height:1.1;text-align:center">{faq.titulo}</h2>
+    <Faq />
+  </section>
+</Base>
+
+<script>
+  // Validación y envío del formulario sin recargar la página.
+  const form = document.querySelector<HTMLFormElement>('form[name="contacto"]');
+  const exito = document.querySelector<HTMLElement>('.exito');
+  const errorGeneral = form?.querySelector<HTMLElement>('.estado-error');
+
+  const validar = (campo: HTMLInputElement | HTMLTextAreaElement) => {
+    const msj = campo.parentElement?.querySelector<HTMLElement>('.campo-error');
+    const valor = campo.value.trim();
+    const mailOk = campo.type !== 'email' || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(valor);
+    const ok = valor !== '' && campo.checkValidity() && mailOk;
+    campo.setAttribute('aria-invalid', String(!ok));
+    if (msj) msj.textContent = ok ? '' : campo.dataset.error ?? '';
+    return ok;
+  };
+
+  if (form) {
+    const requeridos = [...form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('[required]')];
+    requeridos.forEach((c) => c.addEventListener('blur', () => c.value && validar(c)));
+    requeridos.forEach((c) => c.addEventListener('input', () => c.getAttribute('aria-invalid') === 'true' && validar(c)));
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorGeneral?.setAttribute('hidden', '');
+      const invalidos = requeridos.filter((c) => !validar(c));
+      if (invalidos.length) { invalidos[0].focus(); return; }
+
+      const boton = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+      const textoBoton = boton.textContent;
+      boton.disabled = true;
+      boton.textContent = 'Enviando…';
+
+      try {
+        if (import.meta.env.DEV) {
+          // En tu compu (modo prueba) no hay Netlify: simulamos un envío exitoso.
+          await new Promise((r) => setTimeout(r, 600));
+        } else {
+          const body = new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString();
+          const res = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body });
+          if (!res.ok) throw new Error(String(res.status));
+        }
+        form.hidden = true;
+        exito?.removeAttribute('hidden');
+        exito?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch {
+        errorGeneral?.removeAttribute('hidden');
+      } finally {
+        boton.disabled = false;
+        boton.textContent = textoBoton;
+      }
+    });
+  }
+</script>
+
+<style>
+  .intro { padding: 88px var(--gutter) 64px; display: flex; flex-direction: column; gap: 24px; }
+  .intro-p { margin: 0; font-size: 20px; line-height: 1.55; max-width: 46ch; text-wrap: pretty; }
+
+  .agenda { --min: 400px; scroll-margin-top: 90px; padding: 72px var(--gutter) 88px; gap: 56px 72px; align-items: start; }
+
+  /* Formulario */
+  .form, .exito { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+  .form[hidden], .exito[hidden] { display: none; }
+  .form-titulo { margin: 0; font-family: var(--josefin); font-weight: 300; font-size: 28px; line-height: 1.1; letter-spacing: .03em; text-transform: uppercase; padding-top: .1em; }
+  .fila { --min: 220px; gap: 20px; }
+  label { display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; }
+  .opcional { font-weight: 400; color: var(--marron-2); }
+  input, select, textarea {
+    width: 100%;
+    min-height: 52px;
+    padding: 12px 16px;
+    background: var(--input);
+    border: 1.5px solid rgba(59, 42, 32, .3);
+    border-radius: 0;
+    color: var(--marron);
+    font: 16px var(--figtree);
+    transition: border-color .2s;
+  }
+  textarea { resize: vertical; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--tinta); }
+  [aria-invalid='true'] { border-color: #B3261E; }
+  .campo-error { font-weight: 500; font-size: 13px; color: #B3261E; min-height: 0; }
+  .campo-error:empty { display: none; }
+  .oculto { position: absolute; left: -9999px; }
+
+  .btn-sm { min-height: 56px; padding: 3px 30px 0; font-size: 13px; }
+  .enviar { align-self: flex-start; }
+  .enviar:disabled { opacity: .7; cursor: wait; }
+  .plazo { margin: 0; font-size: 15px; font-weight: 600; color: var(--arcilla); }
+  .privacidad { margin: 0; font-size: 14px; color: var(--marron-2); }
+  .estado-error { padding: 14px 18px; border: 1.5px dashed #B3261E; color: #B3261E; font-size: 15px; }
+
+  .exito { padding: 40px 36px; background: var(--banda); outline: 1.5px dashed rgba(166, 90, 58, .6); outline-offset: -10px; }
+  .exito p { margin: 0; font-size: 17px; line-height: 1.65; }
+
+  /* WhatsApp */
+  .lateral { display: flex; flex-direction: column; gap: 28px; min-width: 0; }
+  .wa { display: flex; flex-direction: column; gap: 14px; }
+  .wa-botones { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  /* Sedes */
+  .sedes { --min: 280px; padding: 64px var(--gutter); gap: 32px 72px; }
+  .sede { display: flex; flex-direction: column; gap: 8px; font-size: 17px; }
+  .sede-ciudad { margin: 0; font-family: var(--josefin); font-weight: 300; font-size: 28px; line-height: 1.1; letter-spacing: .03em; text-transform: uppercase; padding-top: .1em; }
+  .sede p { margin: 0; line-height: 1.6; }
+
+  .faq-sec { padding: 88px var(--gutter) 96px; display: flex; flex-direction: column; gap: 32px; max-width: 1000px; margin: 0 auto; }
+
+  @media (max-width: 760px) {
+    .intro { padding-top: 56px; padding-bottom: 48px; }
+    .agenda { padding-top: 56px; padding-bottom: 64px; }
+    .enviar, .wa-botones .btn { width: 100%; }
+    .faq-sec { padding-top: 64px; padding-bottom: 72px; }
+  }
+</style>

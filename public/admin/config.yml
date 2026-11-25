@@ -1,0 +1,354 @@
+# =========================================================
+# Decap CMS — configuración del panel de edición de LOOM
+# =========================================================
+
+# Dónde se guardan los cambios: en tu repositorio de GitHub.
+# ⚠️ Cuando creemos el repositorio, reemplazamos TU-USUARIO por tu usuario de GitHub.
+backend:
+  name: github
+  repo: TU-USUARIO/loom-web
+  branch: main
+  commit_messages:
+    update: "Editar {{collection}}: {{slug}}"
+    uploadMedia: "Subir imagen {{path}}"
+    deleteMedia: "Borrar imagen {{path}}"
+
+# Para probar el panel en tu compu (con "npm run cms" encendido).
+local_backend: true
+
+locale: es
+site_url: http://localhost:4321
+display_url: http://localhost:4321
+
+# Dónde se guardan las fotos que subas
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  # ---------------------------------------------------------
+  - name: paginas
+    label: Páginas
+    description: Los textos e imágenes de cada página de la web.
+    editor: { preview: false }
+    files:
+
+      # ======================= INICIO =======================
+      - name: inicio
+        label: Inicio
+        file: src/data/inicio.json
+        fields:
+          - label: SEO (cómo aparece en Google)
+            name: seo
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Título de la pestaña, name: titulo, widget: string }
+              - { label: Descripción para Google, name: descripcion, widget: text, hint: "Ideal: entre 120 y 160 caracteres." }
+          - label: Portada
+            name: hero
+            widget: object
+            fields:
+              - { label: Texto chico de arriba, name: eyebrow, widget: string }
+              - { label: Título principal, name: titulo, widget: string }
+              - { label: Texto, name: texto, widget: text }
+              - { label: Foto, name: imagen, widget: image, required: false, hint: "Vertical (4:5). Si la dejás vacía se ve el marco con la etiqueta." }
+              - { label: Etiqueta del marco vacío, name: imagenEtiqueta, widget: string, required: false }
+          - label: Banda de ciudades
+            name: banda
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Texto izquierdo, name: izquierda, widget: string }
+              - { label: Texto derecho, name: derecha, widget: string }
+          - label: Servicios (resumen)
+            name: resumenServicios
+            widget: object
+            fields:
+              - { label: Título, name: titulo, widget: string }
+              - { label: Texto, name: texto, widget: text }
+              - label: Tarjetas
+                name: items
+                widget: list
+                allow_add: false
+                summary: "{{fields.titulo}}"
+                fields:
+                  - { label: Punto de partida, name: etiqueta, widget: string }
+                  - { label: Título, name: titulo, widget: string }
+                  - { label: Texto, name: texto, widget: text }
+          - label: Qué es LOOM
+            name: queEs
+            widget: object
+            fields:
+              - { label: Texto chico de arriba, name: eyebrow, widget: string }
+              - { label: Frase destacada, name: frase, widget: text }
+              - { label: Texto, name: texto, widget: text }
+              - { label: Foto, name: imagen, widget: image, required: false, hint: "Cuadrada (1:1)." }
+              - { label: Etiqueta del marco vacío, name: imagenEtiqueta, widget: string, required: false }
+          - label: Diferenciales
+            name: diferenciales
+            widget: object
+            fields:
+              - { label: Título, name: titulo, widget: string }
+              - label: Diferenciales
+                name: items
+                widget: list
+                summary: "{{fields.titulo}}"
+                fields:
+                  - { label: Título, name: titulo, widget: string }
+                  - { label: Texto, name: texto, widget: text }
+          - label: Caso de éxito
+            name: caso
+            widget: object
+            fields:
+              - { label: Etiqueta, name: etiqueta, widget: string }
+              - { label: Título, name: titulo, widget: string }
+              - { label: El desafío, name: desafio, widget: text }
+              - { label: Lo que hicimos, name: hicimos, widget: text }
+              - { label: Foto, name: imagen, widget: image, required: false }
+              - { label: Etiqueta del marco vacío, name: imagenEtiqueta, widget: string, required: false }
+
+      # ======================= SERVICIOS =======================
+      - name: servicios
+        label: Servicios
+        file: src/data/servicios.json
+        fields:
+          - label: SEO (cómo aparece en Google)
+            name: seo
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Título de la pestaña, name: titulo, widget: string }
+              - { label: Descripción para Google, name: descripcion, widget: text }
+          - label: Presentación
+            name: intro
+            widget: object
+            fields:
+              - { label: Texto chico de arriba, name: eyebrow, widget: string }
+              - { label: Título, name: titulo, widget: string }
+              - { label: Texto, name: texto, widget: text }
+          - label: Servicios
+            name: servicios
+            widget: list
+            allow_add: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - { label: Punto de partida, name: etiqueta, widget: string }
+              - { label: Título, name: titulo, widget: string }
+              - { label: Texto principal, name: texto, widget: text }
+              - { label: Texto adicional, name: textoExtra, widget: text, required: false }
+              - { label: Para quién es, name: paraQuien, widget: text }
+              - label: Qué incluye
+                name: incluye
+                widget: list
+                field: { label: Ítem, name: item, widget: string }
+              - label: Etapas (desplegable)
+                name: etapas
+                widget: list
+                required: false
+                hint: "Si lo dejás vacío, no aparece el botón «Ver las etapas»."
+                summary: "{{fields.titulo}}"
+                fields:
+                  - { label: Título, name: titulo, widget: string }
+                  - { label: Texto, name: texto, widget: text }
+                  - { label: Nota (gris), name: nota, widget: text, required: false }
+              - { label: Foto, name: imagen, widget: image, required: false, hint: "Vertical (4:5)." }
+              - { label: Etiqueta del marco vacío, name: imagenEtiqueta, widget: string, required: false }
+          - label: Servicio adicional
+            name: adicional
+            widget: object
+            fields:
+              - { label: Texto chico de arriba, name: eyebrow, widget: string }
+              - { label: Título, name: titulo, widget: string }
+              - { label: Texto, name: texto, widget: text }
+          - label: Honorarios
+            name: honorarios
+            widget: object
+            fields:
+              - { label: Texto chico de arriba, name: eyebrow, widget: string }
+              - { label: Título, name: titulo, widget: string }
+              - { label: Texto principal, name: texto, widget: text }
+              - { label: Texto adicional, name: textoExtra, widget: text, required: false }
+
+      # ======================= CÓMO TRABAJAMOS =======================
+      - name: como-trabajamos
+        label: Cómo trabajamos
+        file: src/data/como-trabajamos.json
+        fields:
+          - label: SEO (cómo aparece en Google)
+            name: seo
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Título de la pestaña, name: titulo, widget: string }
+              - { label: Descripción para Google, name: descripcion, widget: text }
+          - label: Presentación
+            name: intro
+            widget: object
+            hint: "El título de esta página se edita en «Partes compartidas → Los 6 pasos»."
+            fields:
+              - { label: Texto, name: texto, widget: text }
+          - label: Punto de partida
+            name: puntoPartida
+            widget: object
+            fields:
+              - { label: Título, name: titulo, widget: string }
+              - { label: Texto, name: texto, widget: text }
+
+      # ======================= NOSOTRAS =======================
+      - name: nosotras
+        label: Nosotras
+        file: src/data/nosotras.json
+        fields:
+          - label: SEO (cómo aparece en Google)
+            name: seo
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Título de la pestaña, name: titulo, widget: string }
+              - { label: Descripción para Google, name: descripcion, widget: text }
+          - label: Presentación
+            name: intro
+            widget: object
+            hint: "Los perfiles se editan en «Partes compartidas → Fundadoras»."
+            fields:
+              - { label: Título, name: titulo, widget: string }
+          - label: Presencia
+            name: presencia
+            widget: object
+            fields:
+              - { label: Título, name: titulo, widget: string }
+              - label: Izquierda
+                name: izquierda
+                widget: object
+                fields:
+                  - { label: Ciudad, name: ciudad, widget: string }
+                  - { label: Persona, name: persona, widget: string }
+              - label: Derecha
+                name: derecha
+                widget: object
+                fields:
+                  - { label: Ciudad, name: ciudad, widget: string }
+                  - { label: Persona, name: persona, widget: string }
+
+      # ======================= CONTACTO =======================
+      - name: contacto
+        label: Contacto
+        file: src/data/contacto.json
+        fields:
+          - label: SEO (cómo aparece en Google)
+            name: seo
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Título de la pestaña, name: titulo, widget: string }
+              - { label: Descripción para Google, name: descripcion, widget: text }
+          - label: Presentación
+            name: intro
+            widget: object
+            fields:
+              - { label: Texto chico de arriba, name: eyebrow, widget: string }
+              - { label: Título, name: titulo, widget: string }
+              - { label: Texto, name: texto, widget: text }
+          - label: Formulario
+            name: formulario
+            widget: object
+            fields:
+              - { label: Título, name: titulo, widget: string }
+              - label: Opciones de «Punto de partida»
+                name: puntosDePartida
+                widget: list
+                field: { label: Opción, name: opcion, widget: string }
+              - { label: Texto del botón, name: boton, widget: string }
+              - { label: Plazo de respuesta, name: plazo, widget: string }
+              - { label: Aviso de privacidad, name: privacidad, widget: string }
+              - { label: Título al enviar, name: exitoTitulo, widget: string }
+              - { label: Texto al enviar, name: exitoTexto, widget: text }
+              - { label: Mensaje si falla el envío, name: error, widget: text }
+          - { label: Título de WhatsApp, name: whatsappTitulo, widget: string }
+          - label: Modalidad
+            name: modalidad
+            widget: object
+            fields:
+              - { label: Título, name: titulo, widget: string }
+              - { label: Texto, name: texto, widget: text }
+
+  # ---------------------------------------------------------
+  - name: compartidas
+    label: Partes compartidas
+    description: Contenido que aparece en varias páginas a la vez.
+    editor: { preview: false }
+    files:
+
+      - name: site
+        label: Datos generales y contacto
+        file: src/data/site.json
+        fields:
+          - { label: Nombre, name: nombre, widget: string }
+          - { label: Bajada, name: bajada, widget: string }
+          - { label: Frase final, name: tagline, widget: string }
+          - { label: Texto del botón de agenda, name: botonAgenda, widget: string }
+          - { label: Texto del botón de WhatsApp, name: botonWhatsapp, widget: string }
+          - { label: WhatsApp principal, name: whatsapp, widget: string, hint: "Solo números, con código de país y sin «+». Ej: 5491155832742" }
+          - label: Sedes
+            name: sedes
+            widget: list
+            summary: "{{fields.ciudad}}"
+            fields:
+              - { label: Ciudad, name: ciudad, widget: string }
+              - { label: Mail, name: email, widget: string }
+              - { label: Teléfono (como se muestra), name: telefono, widget: string }
+              - { label: WhatsApp (solo números), name: whatsapp, widget: string }
+          - label: Bloque final azul
+            name: ctaFinal
+            widget: object
+            fields:
+              - { label: Título, name: titulo, widget: string }
+              - { label: Texto, name: texto, widget: text }
+
+      - name: pasos
+        label: Los 6 pasos
+        file: src/data/pasos.json
+        fields:
+          - { label: Texto chico de arriba, name: eyebrow, widget: string }
+          - { label: Título, name: titulo, widget: string }
+          - { label: Nota debajo de los pasos, name: nota, widget: string }
+          - label: Pasos
+            name: pasos
+            widget: list
+            summary: "{{fields.titulo}}"
+            fields:
+              - { label: Título, name: titulo, widget: string }
+              - { label: Texto, name: texto, widget: text }
+
+      - name: equipo
+        label: Fundadoras
+        file: src/data/equipo.json
+        fields:
+          - { label: Texto chico de arriba, name: eyebrow, widget: string }
+          - { label: Título, name: titulo, widget: string }
+          - label: Personas
+            name: personas
+            widget: list
+            summary: "{{fields.nombre}}"
+            fields:
+              - { label: Nombre, name: nombre, widget: string }
+              - { label: Rol, name: rol, widget: string }
+              - { label: Área, name: area, widget: string }
+              - { label: Bio, name: bio, widget: text }
+              - { label: Mail, name: email, widget: string }
+              - { label: Foto, name: foto, widget: image, required: false, hint: "Vertical (4:5)." }
+              - { label: Etiqueta del marco vacío, name: fotoEtiqueta, widget: string, required: false }
+
+      - name: faq
+        label: Preguntas frecuentes
+        file: src/data/faq.json
+        fields:
+          - { label: Título, name: titulo, widget: string }
+          - label: Preguntas
+            name: preguntas
+            widget: list
+            summary: "{{fields.pregunta}}"
+            fields:
+              - { label: Pregunta, name: pregunta, widget: string }
+              - { label: Respuesta, name: respuesta, widget: text }
+              - { label: Mostrar también en el Inicio, name: enInicio, widget: boolean, default: true }

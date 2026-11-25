@@ -1,0 +1,18 @@
+---
+// Página de respaldo: se muestra si el formulario se envía sin JavaScript.
+import Base from '../layouts/Base.astro';
+import data from '../data/contacto.json';
+---
+<Base titulo="Gracias · LOOM" descripcion={data.formulario.exitoTexto}>
+  <section class="gracias">
+    <div class="eyebrow eyebrow-sm">{data.intro.eyebrow}</div>
+    <h1 class="h1">{data.formulario.exitoTitulo}</h1>
+    <p>{data.formulario.exitoTexto}</p>
+    <a href="/" class="btn btn-primary">Volver al inicio</a>
+  </section>
+</Base>
+
+<style>
+  .gracias { padding: 120px var(--gutter); display: flex; flex-direction: column; align-items: flex-start; gap: 24px; min-height: 60vh; }
+  p { margin: 0; font-size: 20px; line-height: 1.55; max-width: 46ch; }
+</style>

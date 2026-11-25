@@ -1,0 +1,203 @@
+/* =========================================================
+   LOOM — estilos globales
+   Colores, tipografías y piezas reutilizables del diseño.
+   ========================================================= */
+
+:root {
+  /* Colores de marca */
+  --crudo: #F5EFE4;        /* fondo principal */
+  --banda: #F1E9DB;        /* fondo de bandas alternas */
+  --placeholder: #EADFCB;  /* fondo de imágenes vacías */
+  --input: #FBF8F2;        /* fondo de campos de formulario */
+  --marron: #3B2A20;       /* texto principal */
+  --marron-2: #6E5A4C;     /* texto secundario */
+  --tinta: #1E2B45;        /* azul: botones y links */
+  --arcilla: #A65A3A;      /* acento */
+  --rosa: #D9A48C;         /* acento sobre azul */
+  --hueso: #E6DFD2;        /* texto claro sobre azul */
+  --tiza: #D9C4A2;         /* línea de tiza */
+
+  --josefin: 'Josefin Sans', sans-serif;
+  --figtree: 'Figtree', system-ui, sans-serif;
+
+  --gutter: 72px;          /* margen lateral de las secciones */
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --punteado: 1.5px dashed rgba(166, 90, 58, .6);
+}
+
+@media (max-width: 760px) {
+  :root { --gutter: 24px; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+body {
+  margin: 0;
+  background: var(--crudo);
+  color: var(--marron);
+  font-family: var(--figtree);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--tinta); }
+a:hover { color: var(--arcilla); }
+summary { list-style: none; cursor: pointer; }
+summary::-webkit-details-marker { display: none; }
+:focus-visible { outline: 2px solid var(--arcilla); outline-offset: 3px; }
+
+/* ---------- Tipografía ---------- */
+.h1, .h2, .h2-sm {
+  margin: 0;
+  font-family: var(--josefin);
+  font-weight: 300;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  padding-top: .1em; /* compensa la métrica de Josefin */
+  text-wrap: balance;
+}
+.h1 { font-size: clamp(38px, 4.4vw, 60px); line-height: 1.05; }
+.h2 { font-size: clamp(30px, 3.2vw, 43px); line-height: 1.08; }
+.h2-sm { font-size: clamp(28px, 3vw, 38px); line-height: 1.1; }
+
+.eyebrow {
+  font-family: var(--josefin);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: .3em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--arcilla);
+}
+.eyebrow-sm { font-size: 13px; }
+
+.h3 {
+  margin: 0;
+  font-family: var(--josefin);
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.35;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding-top: 3px;
+}
+
+.numeral {
+  font-family: var(--josefin);
+  font-weight: 300;
+  font-size: 41px;
+  line-height: 1;
+}
+
+.muted { color: var(--marron-2); }
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 60px;
+  padding: 3px 32px 0;
+  font-family: var(--josefin);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: .18em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  transition: background-color .25s, color .25s;
+}
+.btn-primary {
+  background: var(--tinta);
+  color: var(--crudo);
+  outline: 1px dashed rgba(245, 239, 228, .5);
+  outline-offset: -6px; /* efecto pespunte */
+}
+.btn-primary:hover { background: #2a3a5c; color: var(--crudo); }
+.btn-outline { border: 1.5px dashed var(--marron); color: var(--marron); background: transparent; }
+.btn-outline:hover { background: var(--banda); color: var(--marron); }
+.btn-light { background: var(--crudo); color: var(--tinta); }
+.btn-light:hover { background: #fff; color: var(--tinta); }
+.btn-outline-light { border: 1.5px dashed var(--crudo); color: var(--crudo); }
+.btn-outline-light:hover { background: rgba(245, 239, 228, .1); color: var(--crudo); }
+
+.link-arrow {
+  font-family: var(--josefin);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--tinta);
+}
+
+/* Botones chicos punteados "01 Producto definido" */
+.atajos { display: flex; flex-wrap: wrap; gap: 12px; }
+.atajo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 3px 20px 0;
+  border: var(--punteado);
+  text-decoration: none;
+  color: var(--marron);
+  font-family: var(--josefin);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  transition: background-color .25s;
+}
+.atajo:hover { background: var(--banda); color: var(--marron); }
+.atajo span { color: var(--arcilla); }
+
+/* ---------- Secciones ---------- */
+.section { padding: 86px var(--gutter); }
+.bg-banda { background: var(--banda); }
+
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min, 260px)), 1fr));
+}
+
+/* ---------- Marco de imagen con trama ---------- */
+.frame { position: relative; }
+.frame > svg.trama { position: absolute; inset: 0; width: 100%; height: 100%; }
+.frame-inner {
+  position: absolute;
+  inset: var(--inset, 16px);
+  background: var(--placeholder);
+  outline: 1px dashed rgba(59, 42, 32, .4);
+  outline-offset: -12px;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+  overflow: hidden;
+}
+.frame-inner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.frame-label { position: relative; font: 12px ui-monospace, Menlo, monospace; color: var(--marron-2); }
+
+/* ---------- Animaciones (ver src/scripts/reveal.js) ---------- */
+.js [data-reveal="up"], .js [data-reveal="pop"] {
+  opacity: 0;
+  transition: opacity 1.1s var(--ease) var(--delay, 0ms), transform 1.1s var(--ease) var(--delay, 0ms);
+}
+.js [data-reveal="up"] { transform: translateY(40px); }
+.js [data-reveal="pop"] { transform: scale(.2) rotate(-60deg); }
+.js [data-reveal="sew"], .js [data-reveal="load"] {
+  clip-path: inset(-40% 100% -40% 0);
+  transition: clip-path 2s cubic-bezier(.6, .1, .2, 1) var(--delay, 0ms);
+}
+.js [data-reveal="load"] { transition-duration: 2.4s; }
+.js [data-reveal].is-visible { opacity: 1; transform: none; }
+.js [data-reveal="sew"].is-visible, .js [data-reveal="load"].is-visible { clip-path: inset(-40% -2% -40% 0); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js [data-reveal] { opacity: 1 !important; transform: none !important; clip-path: none !important; transition: none !important; }
+  [data-draw="scroll"] { clip-path: none !important; }
+}

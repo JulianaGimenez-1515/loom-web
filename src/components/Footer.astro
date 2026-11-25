@@ -1,0 +1,37 @@
+---
+import site from '../data/site.json';
+import Trama from './Trama.astro';
+---
+<footer class="footer">
+  <Trama />
+  <div class="footer-grid grid-auto">
+    <div class="marca">
+      <div class="logo">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="20" style="fill:url(#tw)" /></svg>
+        <span>{site.nombre}</span>
+      </div>
+      <div class="bajada">{site.bajada}</div>
+    </div>
+    {site.sedes.map((s) => (
+      <div class="sede">
+        <strong>{s.ciudad}</strong>
+        <a href={`mailto:${s.email}`}>{s.email}</a>
+        <a href={`https://wa.me/${s.whatsapp}`} target="_blank" rel="noopener">{s.telefono}</a>
+      </div>
+    ))}
+  </div>
+</footer>
+
+<style>
+  .footer { background: var(--banda); }
+  .footer-grid { --min: 240px; gap: 48px; padding: 40px var(--gutter) 37px; font-size: 15px; line-height: 1.7; }
+  .marca { display: flex; flex-direction: column; gap: 10px; }
+  .logo { display: flex; align-items: center; gap: 12px; }
+  .logo svg { width: 20px; height: 20px; }
+  .logo span { font-family: var(--josefin); font-size: 20px; letter-spacing: .3em; padding-top: 3px; }
+  .bajada { font-family: var(--josefin); font-weight: 600; font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--marron-2); }
+  .sede { display: flex; flex-direction: column; }
+  .sede strong { font-family: var(--josefin); font-weight: 600; font-size: 13px; letter-spacing: .2em; text-transform: uppercase; padding-top: 3px; }
+  .sede a { color: var(--marron); text-decoration: none; }
+  .sede a:hover { color: var(--arcilla); }
+</style>

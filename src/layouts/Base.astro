@@ -1,0 +1,50 @@
+---
+// Estructura común de todas las páginas: <head>, header, contenido y footer.
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props { titulo: string; descripcion: string; imagen?: string }
+const { titulo, descripcion, imagen = '/og-image.jpg' } = Astro.props;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+const ogImagen = Astro.site ? new URL(imagen, Astro.site).href : imagen;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titulo}</title>
+    <meta name="description" content={descripcion} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:image" content={ogImagen} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Figtree:wght@400;500;600&display=swap" />
+
+    <!-- Activa las animaciones solo si hay JavaScript (si no, todo se ve igual, sin animar) -->
+    <script is:inline>document.documentElement.classList.add('js')</script>
+  </head>
+  <body>
+    <!-- Textura de trama (#tw) y trazo de lápiz (#pz) que usan los SVG de todo el sitio -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+      <filter id="pz" x="-5%" y="-40%" width="110%" height="180%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="4" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="1.8" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap></filter>
+      <pattern id="tw" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" style="fill:#F1E9DB"></rect><rect x="0" y="1.5" width="10" height="1" style="fill:#C89B5B"></rect><rect x="0" y="4.5" width="10" height="1" style="fill:#C89B5B"></rect><rect x="0" y="7.5" width="10" height="1" style="fill:#C89B5B"></rect><rect x="11" y="0" width="2" height="10" style="fill:#A65A3A"></rect><rect x="14" y="0" width="2" height="10" style="fill:#A65A3A"></rect><rect x="17" y="0" width="2" height="10" style="fill:#6E6A43"></rect><rect x="1" y="10" width="2" height="10" style="fill:#A65A3A"></rect><rect x="4" y="10" width="2" height="10" style="fill:#A65A3A"></rect><rect x="7" y="10" width="2" height="10" style="fill:#6E6A43"></rect><rect x="10" y="11.5" width="10" height="1" style="fill:#C89B5B"></rect><rect x="10" y="14.5" width="10" height="1" style="fill:#C89B5B"></rect><rect x="10" y="17.5" width="10" height="1" style="fill:#C89B5B"></rect></pattern>
+    </defs></svg>
+
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+
+    <script src="../scripts/reveal.ts"></script>
+  </body>
+</html>

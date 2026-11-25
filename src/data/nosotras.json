@@ -1,0 +1,14 @@
+{
+  "seo": {
+    "titulo": "Nosotras · LOOM",
+    "descripcion": "Camila Valdez y Juliana Giménez, cofundadoras de LOOM. Un equipo entre Buenos Aires y Madrid."
+  },
+  "intro": {
+    "titulo": "Detrás de LOOM"
+  },
+  "presencia": {
+    "titulo": "Presencia en Buenos Aires y Madrid",
+    "izquierda": { "ciudad": "Buenos Aires", "persona": "Juliana Giménez" },
+    "derecha": { "ciudad": "Madrid", "persona": "Camila Valdez" }
+  }
+}

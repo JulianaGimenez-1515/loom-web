@@ -1,0 +1,87 @@
+{
+  "seo": {
+    "titulo": "Servicios · LOOM",
+    "descripcion": "Búsqueda y negociación de proveedores, desarrollo de producto y creación de colecciones de moda. Gestión de importación como servicio adicional."
+  },
+  "intro": {
+    "eyebrow": "Nuestros servicios",
+    "titulo": "Servicios de sourcing y desarrollo de producto de moda",
+    "texto": "En LOOM acompañamos a las marcas en distintas etapas de su cadena de desarrollo y producción internacional. Adaptamos cada servicio a las necesidades y al punto de partida de cada proyecto."
+  },
+  "servicios": [
+    {
+      "etiqueta": "Producto definido",
+      "titulo": "Búsqueda y negociación de proveedores",
+      "texto": "Encontramos el fabricante adecuado para marcas que ya tienen su producto definido y buscan producirlo en las mejores condiciones, basándonos en nuestra cartera de proveedores.",
+      "textoExtra": "",
+      "paraQuien": "Marcas que ya tienen su producto definido y buscan producirlo en las mejores condiciones.",
+      "incluye": [
+        "Búsqueda y selección de proveedores",
+        "Negociación de precios, cantidades mínimas (MOQ), plazos y condiciones",
+        "Gestión de muestras",
+        "Coordinación de la producción"
+      ],
+      "etapas": [],
+      "imagen": "",
+      "imagenEtiqueta": "foto real · servicio 01"
+    },
+    {
+      "etiqueta": "Una idea por desarrollar",
+      "titulo": "Desarrollo de producto",
+      "texto": "Acompañamos a las marcas en la creación y definición de nuevos productos, desde la idea inicial hasta el prototipo listo para producción.",
+      "textoExtra": "También ayudamos a reinventar productos existentes, mejorar sus características o incorporar nuevas propuestas al catálogo.",
+      "paraQuien": "Marcas con una idea por desarrollar, o que quieren reinventar o mejorar productos existentes.",
+      "incluye": [
+        "Materiales, tejidos y acabados",
+        "Fichas técnicas",
+        "Desarrollo de muestras",
+        "Prototipo listo para producción"
+      ],
+      "etapas": [],
+      "imagen": "",
+      "imagenEtiqueta": "foto real · servicio 02"
+    },
+    {
+      "etiqueta": "Una colección por crear",
+      "titulo": "Creación y desarrollo de colecciones",
+      "texto": "Acompañamos a las marcas en la creación y desarrollo de nuevas colecciones, desde la conceptualización inicial hasta la gestión integral de su fabricación.",
+      "textoExtra": "",
+      "paraQuien": "Marcas que quieren crear una nueva colección, desde cero o sobre un concepto previamente definido.",
+      "incluye": [
+        "Conceptualización de la colección",
+        "Diseño y desarrollo de producto",
+        "Búsqueda de fabricantes y gestión de producción"
+      ],
+      "etapas": [
+        {
+          "titulo": "Etapa 1. Conceptualización de la colección",
+          "texto": "Desarrollamos una propuesta estratégica y creativa alineada con la identidad de la marca, su público y las tendencias del mercado. Incluye definición del concepto y estilo, selección de categorías, investigación de referencias y tendencias, desarrollo de un moodboard visual y presentación de una propuesta inicial para validar con el cliente.",
+          "nota": "Si el cliente ya tiene el concepto y la dirección creativa definidos, podemos comenzar directamente desde la etapa 2."
+        },
+        {
+          "titulo": "Etapa 2. Diseño y desarrollo de producto",
+          "texto": "Una vez aprobado el concepto, trabajamos junto a un equipo de diseñadores especializados para transformar la propuesta en productos concretos, correctamente definidos y listos para su fabricación. Incluye desarrollo de fichas técnicas, materiales, colores, talles y especificaciones.",
+          "nota": ""
+        },
+        {
+          "titulo": "Etapa 3. Búsqueda de fabricantes y gestión de producción",
+          "texto": "Con los productos definidos, LOOM se encarga de encontrar los fabricantes adecuados, negociar condiciones, coordinar muestras, validar los productos antes de producir y acompañar todo el proceso de fabricación.",
+          "nota": ""
+        }
+      ],
+      "imagen": "",
+      "imagenEtiqueta": "foto real · servicio 03"
+    }
+  ],
+  "adicional": {
+    "eyebrow": "Servicio adicional",
+    "titulo": "Gestión de importación",
+    "texto": "Ofrecemos la gestión de importación como un servicio adicional, independiente del servicio contratado. Las marcas pueden delegar esta etapa en LOOM o trabajar con su propio importador y despachante."
+  },
+  "honorarios": {
+    "eyebrow": "Honorarios",
+    "titulo": "Un modelo flexible, adaptado a cada proyecto.",
+    "texto": "Nuestros honorarios se estructuran según el servicio contratado, el alcance del proyecto y el nivel de gestión requerido. Los definimos junto a cada marca en una primera charla.",
+    "textoExtra": "La gestión de importación y logística internacional se cotiza por separado, según las características y necesidades de cada operación."
+  }
+}

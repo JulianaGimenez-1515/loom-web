@@ -1,0 +1,31 @@
+{
+  "seo": {
+    "titulo": "Contacto · LOOM",
+    "descripcion": "Contanos tu proyecto: escribinos por el formulario o por WhatsApp. Respondemos en un plazo de 48 horas hábiles."
+  },
+  "intro": {
+    "eyebrow": "Contacto",
+    "titulo": "Hablemos de tu proyecto",
+    "texto": "Cada gran producto comienza con una buena conexión. En LOOM estamos listas para acompañarte en tu próximo proyecto."
+  },
+  "formulario": {
+    "titulo": "Escribinos",
+    "puntosDePartida": [
+      "Producto definido",
+      "Una idea por desarrollar",
+      "Una colección por crear",
+      "Todavía no lo sé"
+    ],
+    "boton": "Enviar consulta",
+    "plazo": "Respondemos en un plazo de 48 horas hábiles.",
+    "privacidad": "Usaremos tus datos solo para responder tu consulta.",
+    "exitoTitulo": "¡Gracias por escribirnos!",
+    "exitoTexto": "Recibimos tu consulta. Te respondemos en un plazo de 48 horas hábiles.",
+    "error": "No pudimos enviar tu consulta. Probá de nuevo en unos minutos o escribinos por WhatsApp."
+  },
+  "whatsappTitulo": "Escribir por WhatsApp",
+  "modalidad": {
+    "titulo": "Modalidad",
+    "texto": "Trabajamos a distancia, por videollamada, con marcas de Latinoamérica y España."
+  }
+}

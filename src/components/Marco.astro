@@ -1,0 +1,30 @@
+---
+// Marco de imagen con textura de trama.
+// Si hay "imagen" muestra la foto; si no, muestra el placeholder con su etiqueta.
+interface Props {
+  imagen?: string;
+  alt?: string;
+  etiqueta?: string;
+  ratio?: string;      // ej. "4/5", "1/1"
+  inset?: number;      // separación entre la trama y la foto
+  minHeight?: number;
+  reveal?: string;
+  delay?: number;
+  class?: string;
+}
+const { imagen, alt = '', etiqueta = '', ratio, inset = 16, minHeight, reveal, delay, class: className } = Astro.props;
+const style = [
+  ratio ? `aspect-ratio:${ratio}` : '',
+  minHeight ? `min-height:${minHeight}px` : '',
+  `--inset:${inset}px`,
+  delay ? `--delay:${delay}ms` : '',
+].filter(Boolean).join(';');
+---
+<div class:list={['frame', className]} style={style} data-reveal={reveal}>
+  <svg class="trama" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true"><rect width="400" height="500" style="fill:url(#tw)" /></svg>
+  <div class="frame-inner">
+    {imagen
+      ? <img src={imagen} alt={alt} loading="lazy" decoding="async" />
+      : <span class="frame-label">{etiqueta}</span>}
+  </div>
+</div>

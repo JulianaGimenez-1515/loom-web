@@ -1,0 +1,21 @@
+---
+// Divisor "hilván": línea de lápiz arcilla con lazada, que se dibuja al hacer scroll.
+interface Props { flip?: boolean; mt?: number; mb?: number }
+const { flip = false, mt = 0, mb = 0 } = Astro.props;
+---
+<svg data-reveal="sew" class="hilvan" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true"
+  style={`margin-top:${mt}px;margin-bottom:${mb}px;${flip ? 'transform:scaleX(-1);' : ''}`}>
+  <path d="M-10 100 C 200 130, 420 70, 640 96 C 720 106, 760 128, 740 132 C 716 136, 712 96, 790 86 C 900 72, 1000 40, 1440 20"
+    style="fill:none;stroke:var(--arcilla);stroke-width:2.6;stroke-linecap:round;vector-effect:non-scaling-stroke;filter:url(#pz)" />
+</svg>
+
+<style>
+  .hilvan {
+    display: block;
+    width: calc(100% - 2 * var(--gutter));
+    height: 64px;
+    margin-left: var(--gutter);
+    margin-right: var(--gutter);
+    overflow: visible;
+  }
+</style>

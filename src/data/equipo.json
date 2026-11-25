@@ -1,0 +1,24 @@
+{
+  "eyebrow": "Meet the founders",
+  "titulo": "Dos perfiles complementarios, una misma visión.",
+  "personas": [
+    {
+      "nombre": "Camila Valdez",
+      "rol": "Cofundadora · Madrid",
+      "area": "Estrategia de negocio y producto",
+      "bio": "Estrategia de negocio y producto, experiencia en moda y belleza, con trayectoria en empresas internacionales como Parfois, L'Oréal y LOEWE.",
+      "email": "camila.loom@outlook.com",
+      "foto": "",
+      "fotoEtiqueta": "foto Camila"
+    },
+    {
+      "nombre": "Juliana Giménez",
+      "rol": "Cofundadora · Buenos Aires",
+      "area": "Estrategia creativa y de marca",
+      "bio": "Estrategia creativa y de marca, con formación y experiencia en marketing digital, creación de contenido y desarrollo visual de marca. Trayectoria internacional entre Argentina, Chile y Australia.",
+      "email": "juliana.loom@outlook.com",
+      "foto": "",
+      "fotoEtiqueta": "foto Juliana"
+    }
+  ]
+}

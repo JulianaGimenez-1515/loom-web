@@ -1,0 +1,9 @@
+---
+// Franja o cuadrado con la textura de trama (patrón #tw definido en el layout)
+interface Props { width?: number; height?: number; class?: string; style?: string }
+const { width = 1440, height = 8, class: className, style } = Astro.props;
+---
+<svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="xMinYMid slice" aria-hidden="true"
+  class={className} style={`display:block;width:100%;height:${height}px;${style ?? ''}`}>
+  <rect width={width} height={height} style="fill:url(#tw)" />
+</svg>

@@ -1,0 +1,26 @@
+{
+  "nombre": "LOOM",
+  "bajada": "Global Sourcing & Product Development",
+  "tagline": "From idea to production.",
+  "botonAgenda": "Agendar una videollamada",
+  "botonWhatsapp": "Escribir por WhatsApp",
+  "whatsapp": "5491155832742",
+  "sedes": [
+    {
+      "ciudad": "Buenos Aires",
+      "email": "juliana.loom@outlook.com",
+      "telefono": "+54 9 11 5583 2742",
+      "whatsapp": "5491155832742"
+    },
+    {
+      "ciudad": "Madrid",
+      "email": "camila.loom@outlook.com",
+      "telefono": "+34 648 44 93 82",
+      "whatsapp": "34648449382"
+    }
+  ],
+  "ctaFinal": {
+    "titulo": "Let's build something together.",
+    "texto": "Cada gran producto comienza con una buena conexión. En LOOM estamos listas para acompañarte en tu próximo proyecto."
+  }
+}

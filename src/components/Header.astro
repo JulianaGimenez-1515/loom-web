@@ -1,0 +1,138 @@
+---
+import site from '../data/site.json';
+
+const links = [
+  { href: '/servicios', texto: 'Servicios' },
+  { href: '/como-trabajamos', texto: 'Cómo trabajamos' },
+  { href: '/nosotras', texto: 'Nosotras' },
+  { href: '/contacto', texto: 'Contacto' },
+];
+const actual = Astro.url.pathname.replace(/\/$/, '');
+---
+<header class="header">
+  <a href="/" class="logo" aria-label="LOOM, ir al inicio">
+    <svg viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="20" style="fill:url(#tw)" /></svg>
+    <span>{site.nombre}</span>
+  </a>
+
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-principal">
+    <span class="menu-icono" aria-hidden="true"></span>
+    <span class="sr-only">Abrir menú</span>
+  </button>
+
+  <nav id="nav-principal" class="nav" aria-label="Principal">
+    {links.map((l) => (
+      <a href={l.href} aria-current={actual === l.href ? 'page' : undefined}>{l.texto}</a>
+    ))}
+    <a href="/contacto#agenda" class="nav-cta">{site.botonAgenda}</a>
+  </nav>
+</header>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.menu-btn');
+  const nav = document.getElementById('nav-principal');
+  btn?.addEventListener('click', () => {
+    const abierto = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!abierto));
+    nav?.classList.toggle('abierto', !abierto);
+  });
+  nav?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => {
+    btn?.setAttribute('aria-expanded', 'false');
+    nav.classList.remove('abierto');
+  }));
+</script>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 20px var(--gutter);
+    background: var(--crudo);
+    border-bottom: 1.5px dashed rgba(166, 90, 58, .45);
+  }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--marron); }
+  .logo svg { width: 22px; height: 22px; }
+  .logo span { font-family: var(--josefin); font-weight: 400; font-size: 22px; letter-spacing: .3em; padding-top: 4px; }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 12px 28px;
+    font-family: var(--josefin);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+  .nav a { text-decoration: none; color: var(--marron); padding-top: 3px; }
+  .nav a:hover, .nav a[aria-current='page'] { color: var(--arcilla); }
+  .nav a[aria-current='page'] { border-bottom: 1.5px dashed var(--arcilla); }
+  .nav .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 3px 24px 0;
+    flex: none;
+    background: var(--tinta);
+    color: var(--crudo);
+    outline: 1px dashed rgba(245, 239, 228, .5);
+    outline-offset: -5px;
+  }
+  .nav .nav-cta:hover { color: var(--crudo); background: #2a3a5c; }
+
+  .menu-btn { display: none; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* ---- Menú mobile (hamburguesa) ---- */
+  @media (max-width: 960px) {
+    .menu-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: none;
+      border: 1.5px dashed var(--marron);
+      cursor: pointer;
+    }
+    .menu-icono, .menu-icono::before, .menu-icono::after {
+      display: block;
+      width: 20px;
+      height: 1.6px;
+      background: var(--marron);
+      transition: transform .3s, background-color .3s;
+    }
+    .menu-icono { position: relative; }
+    .menu-icono::before, .menu-icono::after { content: ''; position: absolute; left: 0; }
+    .menu-icono::before { top: -6px; }
+    .menu-icono::after { top: 6px; }
+    .menu-btn[aria-expanded='true'] .menu-icono { background: transparent; }
+    .menu-btn[aria-expanded='true'] .menu-icono::before { transform: translateY(6px) rotate(45deg); }
+    .menu-btn[aria-expanded='true'] .menu-icono::after { transform: translateY(-6px) rotate(-45deg); }
+
+    .nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 8px var(--gutter) 28px;
+      background: var(--crudo);
+      border-bottom: 1.5px dashed rgba(166, 90, 58, .45);
+      font-size: 14px;
+    }
+    .nav.abierto { display: flex; }
+    .nav a { padding: 18px 0 14px; border-bottom: 1px dashed rgba(166, 90, 58, .3); }
+    .nav .nav-cta { justify-content: center; margin-top: 20px; border: 0; min-height: 56px; }
+  }
+</style>

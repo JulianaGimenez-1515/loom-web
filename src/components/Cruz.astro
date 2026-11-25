@@ -1,0 +1,9 @@
+---
+// Cruz de puntada (la "x" de color arcilla que usa toda la marca)
+interface Props { size?: number; color?: string; stroke?: number; class?: string; style?: string }
+const { size = 12, color = 'var(--arcilla)', stroke = 2.4, class: className, style } = Astro.props;
+---
+<svg viewBox="0 0 20 20" aria-hidden="true" class={className}
+  style={`width:${size}px;height:${size}px;flex:none;overflow:visible;${style ?? ''}`}>
+  <path d="M3 3 L17 17 M17 3 L3 17" style={`fill:none;stroke:${color};stroke-width:${stroke};stroke-linecap:round`} />
+</svg>

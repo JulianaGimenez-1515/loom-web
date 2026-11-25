@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "titulo": "LOOM · Producción internacional para tu marca de moda",
+    "descripcion": "Global sourcing y desarrollo de producto para marcas de indumentaria, calzado y accesorios. Equipo en Buenos Aires y Madrid."
+  },
+  "hero": {
+    "eyebrow": "Global Sourcing & Product Development",
+    "titulo": "Producción internacional para tu marca de moda.",
+    "texto": "Conectamos marcas, ideas, diseñadores y fabricantes para transformar necesidades en productos reales.",
+    "imagen": "",
+    "imagenEtiqueta": "foto real · mesa de trabajo / muestras"
+  },
+  "banda": {
+    "izquierda": "Buenos Aires · Madrid",
+    "derecha": "De la idea a la producción"
+  },
+  "resumenServicios": {
+    "titulo": "Un punto de partida, tres caminos.",
+    "texto": "En LOOM acompañamos a las marcas en distintas etapas de su cadena de desarrollo y producción internacional. Adaptamos cada servicio a las necesidades y al punto de partida de cada proyecto.",
+    "items": [
+      {
+        "etiqueta": "Producto definido",
+        "titulo": "Búsqueda y negociación de proveedores",
+        "texto": "Encontramos el fabricante adecuado para marcas que ya tienen su producto definido y buscan producirlo en las mejores condiciones."
+      },
+      {
+        "etiqueta": "Una idea por desarrollar",
+        "titulo": "Desarrollo de producto",
+        "texto": "Acompañamos a las marcas en la creación y definición de nuevos productos, desde la idea inicial hasta el prototipo listo para producción."
+      },
+      {
+        "etiqueta": "Una colección por crear",
+        "titulo": "Creación y desarrollo de colecciones",
+        "texto": "Acompañamos a las marcas en la creación y desarrollo de nuevas colecciones, desde la conceptualización inicial hasta la gestión integral de su fabricación."
+      }
+    ]
+  },
+  "queEs": {
+    "eyebrow": "Qué es LOOM",
+    "frase": "LOOM significa telar: la herramienta que entrelaza hilos para crear un tejido.",
+    "texto": "Así trabajamos: entrelazamos marcas, diseñadores y fabricantes de distintos mercados para que cada producto de indumentaria, calzado o accesorios llegue a producción en las mejores condiciones.",
+    "imagen": "",
+    "imagenEtiqueta": "foto real · detalle de tejido"
+  },
+  "diferenciales": {
+    "titulo": "Un partner estratégico para llevar tus ideas más lejos.",
+    "items": [
+      { "titulo": "Red internacional de proveedores", "texto": "Conectamos marcas con fabricantes en distintos mercados internacionales." },
+      { "titulo": "Acompañamiento personalizado", "texto": "Cada proyecto se trabaja de manera individual, según las necesidades y objetivos de cada marca." },
+      { "titulo": "Optimización de costos y condiciones", "texto": "Negociamos precios, cantidades mínimas y condiciones comerciales para encontrar las mejores oportunidades de producción." },
+      { "titulo": "Gestión integral", "texto": "Acompañamos el proceso desde la búsqueda del proveedor y el desarrollo del producto hasta la fabricación, con validación de muestras y control de calidad." },
+      { "titulo": "Facilitación de pagos internacionales", "texto": "Centralizamos los pagos entre nuestros clientes y los fabricantes del exterior, simplificando las operaciones internacionales." },
+      { "titulo": "Presencia en Buenos Aires y Madrid", "texto": "Un equipo en dos mercados, cerca de marcas de ambos lados del Atlántico." }
+    ]
+  },
+  "caso": {
+    "etiqueta": "Proyecto en curso",
+    "titulo": "Caso de éxito: X-TREME",
+    "desafio": "X-TREME, marca argentina de indumentaria y calzado, quería dar su primer paso en la importación.",
+    "hicimos": "Buscamos y seleccionamos fabricantes, negociamos precios y condiciones, coordinamos el desarrollo de muestras y acompañamos la producción hasta la entrega. Hoy en día X-TREME tiene el 60% de su producción manejada por LOOM.",
+    "imagen": "",
+    "imagenEtiqueta": "foto · producto X-TREME (real)"
+  }
+}

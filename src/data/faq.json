@@ -1,0 +1,30 @@
+{
+  "titulo": "Preguntas frecuentes",
+  "preguntas": [
+    {
+      "pregunta": "¿Con qué tipo de productos trabajan?",
+      "respuesta": "Nos especializamos en el mundo de la indumentaria y la moda: prendas, calzado y accesorios como bolsos de viaje y valijas. Si el proyecto es de otra categoría, lo evaluamos en la primera charla.",
+      "enInicio": true
+    },
+    {
+      "pregunta": "¿Desde qué cantidad se puede producir?",
+      "respuesta": "Depende del producto y del fabricante. Parte de nuestro trabajo es negociar cantidades mínimas (MOQ) acordes a cada marca. Lo evaluamos juntos en la primera charla.",
+      "enInicio": true
+    },
+    {
+      "pregunta": "¿Cómo se cobran los servicios?",
+      "respuesta": "Los honorarios se definen según el servicio y el alcance de cada proyecto, y se cotizan después de una primera charla. Si se combinan servicios, ajustamos los honorarios para no cobrar dos veces las mismas tareas.",
+      "enInicio": false
+    },
+    {
+      "pregunta": "¿Necesito importador y despachante propios?",
+      "respuesta": "No es obligatorio. Pueden delegar la gestión de importación en LOOM como servicio adicional, o trabajar con su propio importador y despachante.",
+      "enInicio": true
+    },
+    {
+      "pregunta": "¿Cómo saben que el producto va a salir como se espera?",
+      "respuesta": "Trabajamos con muestras y validamos los productos antes de producir. Acompañamos todo el proceso de fabricación.",
+      "enInicio": true
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "eyebrow": "Cómo trabajamos",
+  "titulo": "De la idea a la producción, paso a paso.",
+  "nota": "Cada proyecto adapta estas etapas al servicio contratado.",
+  "pasos": [
+    { "titulo": "Primera charla", "texto": "Entendemos el proyecto, los objetivos y el punto de partida de la marca." },
+    { "titulo": "Alcance y propuesta", "texto": "Definimos los servicios, los plazos y los honorarios según el proyecto." },
+    { "titulo": "Búsqueda y desarrollo", "texto": "Seleccionamos fabricantes y, si corresponde, desarrollamos el producto o la colección." },
+    { "titulo": "Muestras y validación", "texto": "Coordinamos las muestras, ajustamos detalles y validamos el producto antes de producir." },
+    { "titulo": "Producción y seguimiento", "texto": "Negociamos las condiciones finales y acompañamos la fabricación." },
+    { "titulo": "Control y entrega", "texto": "Validamos la calidad del producto antes del envío y, si se contrata, gestionamos la importación." }
+  ]
+}

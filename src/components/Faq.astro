@@ -1,0 +1,26 @@
+---
+// Preguntas frecuentes con desplegables nativos (<details>)
+import data from '../data/faq.json';
+import Cruz from './Cruz.astro';
+interface Props { soloInicio?: boolean }
+const { soloInicio = false } = Astro.props;
+const preguntas = soloInicio ? data.preguntas.filter((p) => p.enInicio) : data.preguntas;
+---
+<div class="faq" data-reveal="up">
+  {preguntas.map((p, i) => (
+    <details open={i === 0}>
+      <summary><Cruz class="cruz" />{p.pregunta}</summary>
+      <p>{p.respuesta}</p>
+    </details>
+  ))}
+</div>
+
+<style>
+  .faq { display: flex; flex-direction: column; }
+  details { border-top: var(--punteado); padding: 24px 0; }
+  details:last-child { border-bottom: var(--punteado); }
+  summary { display: flex; align-items: center; gap: 16px; font-size: 17px; font-weight: 500; }
+  summary :global(.cruz) { transition: transform .35s var(--ease); }
+  details[open] summary :global(.cruz) { transform: rotate(45deg); }
+  p { margin: 14px 0 0 28px; font-size: 16px; line-height: 1.65; color: var(--marron-2); }
+</style>
