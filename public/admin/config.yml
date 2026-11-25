@@ -3,10 +3,9 @@
 # =========================================================
 
 # Dónde se guardan los cambios: en tu repositorio de GitHub.
-# ⚠️ Cuando creemos el repositorio, reemplazamos TU-USUARIO por tu usuario de GitHub.
 backend:
   name: github
-  repo: TU-USUARIO/loom-web
+  repo: JulianaGimenez-1515/loom-web
   branch: main
   commit_messages:
     update: "Editar {{collection}}: {{slug}}"
