@@ -10,48 +10,42 @@
   },
   "servicios": [
     {
-      "etiqueta": "Producto definido",
-      "titulo": "Búsqueda y negociación de proveedores",
       "texto": "Encontramos el fabricante adecuado para marcas que ya tienen su producto definido y buscan producirlo en las mejores condiciones, basándonos en nuestra cartera de proveedores.",
+      "imagenEtiqueta": "foto real · servicio 01",
       "textoExtra": "",
       "paraQuien": "Marcas que ya tienen su producto definido y buscan producirlo en las mejores condiciones.",
+      "etapas": [],
+      "imagen": "/uploads/01_services.jpg",
       "incluye": [
         "Búsqueda y selección de proveedores",
         "Negociación de precios, cantidades mínimas (MOQ), plazos y condiciones",
         "Gestión de muestras",
         "Coordinación de la producción"
       ],
-      "etapas": [],
-      "imagen": "",
-      "imagenEtiqueta": "foto real · servicio 01"
+      "etiqueta": "Producto definido",
+      "titulo": "Búsqueda y negociación de proveedores"
     },
     {
-      "etiqueta": "Una idea por desarrollar",
-      "titulo": "Desarrollo de producto",
       "texto": "Acompañamos a las marcas en la creación y definición de nuevos productos, desde la idea inicial hasta el prototipo listo para producción.",
+      "imagenEtiqueta": "foto real · servicio 02",
       "textoExtra": "También ayudamos a reinventar productos existentes, mejorar sus características o incorporar nuevas propuestas al catálogo.",
       "paraQuien": "Marcas con una idea por desarrollar, o que quieren reinventar o mejorar productos existentes.",
+      "etapas": [],
+      "imagen": "/uploads/02_services.jpg",
       "incluye": [
         "Materiales, tejidos y acabados",
         "Fichas técnicas",
         "Desarrollo de muestras",
         "Prototipo listo para producción"
       ],
-      "etapas": [],
-      "imagen": "",
-      "imagenEtiqueta": "foto real · servicio 02"
+      "etiqueta": "Una idea por desarrollar",
+      "titulo": "Desarrollo de producto"
     },
     {
-      "etiqueta": "Una colección por crear",
-      "titulo": "Creación y desarrollo de colecciones",
       "texto": "Acompañamos a las marcas en la creación y desarrollo de nuevas colecciones, desde la conceptualización inicial hasta la gestión integral de su fabricación.",
+      "imagenEtiqueta": "foto real · servicio 03",
       "textoExtra": "",
       "paraQuien": "Marcas que quieren crear una nueva colección, desde cero o sobre un concepto previamente definido.",
-      "incluye": [
-        "Conceptualización de la colección",
-        "Diseño y desarrollo de producto",
-        "Búsqueda de fabricantes y gestión de producción"
-      ],
       "etapas": [
         {
           "titulo": "Etapa 1. Conceptualización de la colección",
@@ -69,8 +63,14 @@
           "nota": ""
         }
       ],
-      "imagen": "",
-      "imagenEtiqueta": "foto real · servicio 03"
+      "imagen": "/uploads/03_services.jpg",
+      "incluye": [
+        "Conceptualización de la colección",
+        "Diseño y desarrollo de producto",
+        "Búsqueda de fabricantes y gestión de producción"
+      ],
+      "etiqueta": "Una colección por crear",
+      "titulo": "Creación y desarrollo de colecciones"
     }
   ],
   "adicional": {
