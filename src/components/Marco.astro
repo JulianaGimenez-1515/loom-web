@@ -25,6 +25,8 @@ const style = [
   <div class="frame-inner">
     {imagen
       ? <img src={imagen} alt={alt} loading="lazy" decoding="async" />
-      : <span class="frame-label">{etiqueta}</span>}
+      : Astro.slots.has('default')
+        ? <slot />
+        : <span class="frame-label">{etiqueta}</span>}
   </div>
 </div>

@@ -103,7 +103,9 @@ collections:
               - { label: Título, name: titulo, widget: string }
               - { label: El desafío, name: desafio, widget: text }
               - { label: Lo que hicimos, name: hicimos, widget: text }
-              - { label: Foto, name: imagen, widget: image, required: false }
+              - { label: Dato destacado (número grande), name: dato, widget: string, required: false, hint: "Ej: 60%. Se muestra en el marco cuando no hay foto. Si lo dejás vacío y sin foto, se ve el marco con la etiqueta." }
+              - { label: Texto debajo del dato, name: datoTexto, widget: string, required: false }
+              - { label: Foto, name: imagen, widget: image, required: false, hint: "Si subís una foto, reemplaza al dato destacado." }
               - { label: Etiqueta del marco vacío, name: imagenEtiqueta, widget: string, required: false }
 
       # ======================= SERVICIOS =======================
