@@ -22,7 +22,7 @@ const style = [
 ---
 <div class:list={['frame', className]} style={style} data-reveal={reveal}>
   <svg class="trama" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true"><rect width="400" height="500" style="fill:url(#tw)" /></svg>
-  <div class="frame-inner">
+  <div class:list={['frame-inner', imagen && 'con-foto']}>
     {imagen
       ? <img src={imagen} alt={alt} loading="lazy" decoding="async" />
       : Astro.slots.has('default')
