@@ -21,5 +21,7 @@ const panelEnDev = {
 
 // https://astro.build/config
 export default defineConfig({
+  // Dirección pública de la web (cambiarla si conectan un dominio propio)
+  site: 'https://loom-web.netlify.app',
   integrations: [panelEnDev],
 });

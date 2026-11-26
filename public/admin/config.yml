@@ -16,8 +16,8 @@ backend:
 local_backend: true
 
 locale: es
-site_url: http://localhost:4321
-display_url: http://localhost:4321
+site_url: https://loom-web.netlify.app
+display_url: https://loom-web.netlify.app
 
 # Dónde se guardan las fotos que subas
 media_folder: public/uploads
