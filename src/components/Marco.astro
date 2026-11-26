@@ -1,6 +1,7 @@
 ---
 // Marco de imagen con textura de trama.
-// Si hay "imagen" muestra la foto; si no, muestra el placeholder con su etiqueta.
+// - Con "imagen": la foto define el alto del marco (funciona bien en Safari/iPhone).
+// - Sin imagen: muestra lo que venga adentro (ej. el dato 60%) o el placeholder con su etiqueta.
 interface Props {
   imagen?: string;
   alt?: string;
@@ -13,20 +14,26 @@ interface Props {
   class?: string;
 }
 const { imagen, alt = '', etiqueta = '', ratio, inset = 16, minHeight, reveal, delay, class: className } = Astro.props;
+
 const style = [
-  ratio ? `aspect-ratio:${ratio}` : '',
-  minHeight ? `min-height:${minHeight}px` : '',
+  // Con foto, la proporción la toma la foto; sin foto, el marco.
+  !imagen && ratio ? `aspect-ratio:${ratio}` : '',
+  !imagen && minHeight ? `min-height:${minHeight}px` : '',
   `--inset:${inset}px`,
+  ratio ? `--ratio:${ratio}` : '',
+  minHeight ? `--foto-min:${minHeight - inset * 2}px` : '',
   delay ? `--delay:${delay}ms` : '',
 ].filter(Boolean).join(';');
 ---
-<div class:list={['frame', className]} style={style} data-reveal={reveal}>
+<div class:list={['frame', className, imagen && 'tiene-foto']} style={style} data-reveal={reveal}>
   <svg class="trama" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true"><rect width="400" height="500" style="fill:url(#tw)" /></svg>
-  <div class:list={['frame-inner', imagen && 'con-foto']}>
-    {imagen
-      ? <img src={imagen} alt={alt} loading="lazy" decoding="async" />
-      : Astro.slots.has('default')
-        ? <slot />
-        : <span class="frame-label">{etiqueta}</span>}
-  </div>
+  {imagen ? (
+    <div class="frame-foto">
+      <img src={imagen} alt={alt} loading="lazy" decoding="async" />
+    </div>
+  ) : (
+    <div class="frame-inner">
+      {Astro.slots.has('default') ? <slot /> : <span class="frame-label">{etiqueta}</span>}
+    </div>
+  )}
 </div>
