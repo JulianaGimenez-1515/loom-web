@@ -7,7 +7,7 @@
     "eyebrow": "Global Sourcing & Product Development",
     "titulo": "Producción internacional para tu marca de moda.",
     "texto": "Conectamos marcas, ideas, diseñadores y fabricantes para transformar necesidades en productos reales.",
-    "imagen": "",
+    "imagen": "/uploads/imagen_inicio.jpg",
     "imagenEtiqueta": "foto real · mesa de trabajo / muestras"
   },
   "banda": {
@@ -45,12 +45,30 @@
   "diferenciales": {
     "titulo": "Un partner estratégico para llevar tus ideas más lejos.",
     "items": [
-      { "titulo": "Red internacional de proveedores", "texto": "Conectamos marcas con fabricantes en distintos mercados internacionales." },
-      { "titulo": "Acompañamiento personalizado", "texto": "Cada proyecto se trabaja de manera individual, según las necesidades y objetivos de cada marca." },
-      { "titulo": "Optimización de costos y condiciones", "texto": "Negociamos precios, cantidades mínimas y condiciones comerciales para encontrar las mejores oportunidades de producción." },
-      { "titulo": "Gestión integral", "texto": "Acompañamos el proceso desde la búsqueda del proveedor y el desarrollo del producto hasta la fabricación, con validación de muestras y control de calidad." },
-      { "titulo": "Facilitación de pagos internacionales", "texto": "Centralizamos los pagos entre nuestros clientes y los fabricantes del exterior, simplificando las operaciones internacionales." },
-      { "titulo": "Presencia en Buenos Aires y Madrid", "texto": "Un equipo en dos mercados, cerca de marcas de ambos lados del Atlántico." }
+      {
+        "titulo": "Red internacional de proveedores",
+        "texto": "Conectamos marcas con fabricantes en distintos mercados internacionales."
+      },
+      {
+        "titulo": "Acompañamiento personalizado",
+        "texto": "Cada proyecto se trabaja de manera individual, según las necesidades y objetivos de cada marca."
+      },
+      {
+        "titulo": "Optimización de costos y condiciones",
+        "texto": "Negociamos precios, cantidades mínimas y condiciones comerciales para encontrar las mejores oportunidades de producción."
+      },
+      {
+        "titulo": "Gestión integral",
+        "texto": "Acompañamos el proceso desde la búsqueda del proveedor y el desarrollo del producto hasta la fabricación, con validación de muestras y control de calidad."
+      },
+      {
+        "titulo": "Facilitación de pagos internacionales",
+        "texto": "Centralizamos los pagos entre nuestros clientes y los fabricantes del exterior, simplificando las operaciones internacionales."
+      },
+      {
+        "titulo": "Presencia en Buenos Aires y Madrid",
+        "texto": "Un equipo en dos mercados, cerca de marcas de ambos lados del Atlántico."
+      }
     ]
   },
   "caso": {
